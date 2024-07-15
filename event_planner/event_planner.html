@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planner</title>
+    <link rel="stylesheet" href="jsfinalproject.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+</head>
+<body>
+    <div id="header"><h1>Personal Event Planner</h1></div>
+    <div id="eventViewer">
+        <div id="selectedEvent">
+            <div id="shareModal" class="modal">
+                <div class="modal-content">
+                    <span id="close">&times;</span>
+                    <div class="modal-body">
+                        <div id="share-alerts-error"></div><div id="share-alerts-success"></div>
+                        <table>
+                            <tr>
+                                <td><button class="btnCopy" id="email"></button></td>
+                                <td><label for="email" id="shareEmail">Share Event Via Email</label></td>
+                            </tr>
+                            <tr>
+                                <td><button class="btnCopy" id="clipboard"></button></td>
+                                <td><label for="clipboard" id="shareSocial">Or Copy To Clipboard<br/> & Share Via Socials</label></td>
+                            </tr>
+                        </table>
+                        <div id="socials">
+                            <button class="btnSocials" id="fb"></button>
+                            <button class="btnSocials" id="x"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 id="eventHeader">Event Viewer</h2>
+            <div id="noEvent"><em>[No event selected]</em></div><div id="view-alerts-error"></div><div id="view-alerts-success"></div>
+            <div id="selectedEventInfo">
+                <div id="viewEventDetails"></div>
+                <div id="viewEventNotes">
+                    <p id="notesHeading"><b>Notes:</b></p>
+                    <p id="SENotes"></p>
+                </div>
+            </div>
+            <div id="shareOptions">
+                <button id="btnShare">Share Event</button><br/>
+                <input type="checkbox" id="useCustom" name="useCustom" class="radio">
+                <label for="useCustom" id="useCustomText">Use Custom Share Panel</label>
+            </div>
+        </div>
+        <div id="mapFrame"><div id="map"></div></div>
+    </div>
+    <div id="eventSearchAndList">
+        <div id="searchPanel">
+            <h2 id="searchHeading">Search For An Event</h2>
+            <div id="search-alerts-error"></div><div id="search-alerts-success"></div>
+            <label for="searchInput">How would you like to search?</label><br/>
+            <input type="radio" id="byName" class="radio" name="locationChoice2"/>
+            <label for="byName">By Name</label>
+            <input type="radio" id="byDate" class="radio" name="locationChoice2"/>
+            <label for="byDate">By Date</label>
+            <input type="radio" id="byLocation" class="radio" name="locationChoice2"/>
+            <label for="byLocation">By Location</label></br>
+            <input id="searchInput" type="text">
+            <div class="alignBtn1"><button id="btnSearch">Search</button><br/></div>
+            <label for="btnShowFull" id="showFull">Or reset and show full list:</label></br>
+            <div class="alignBtn1"><button id="btnShowFull">Show Full List</button></div>
+        </div>
+        <div id="eventList">
+            <h2>Event Planner</h2>
+            <div id="list-alerts-general"></div><div id="list-alerts-error"></div><div id="list-alerts-success"></div>
+            <span class="clickPrompt">Click or tap an event to see its details in the Event Viewer</span>
+            <div id="listViewer"><ul id="listOutput"></ul></div>
+        </div>
+    </div>
+    <div id="addDeleteEdit">
+    <div id="addDelete">
+    <div id="addPanel">
+        <h2>Add An Event</h2>
+        <h4>* Required Fields</h4>
+        <div id="add-alerts-error"></div><div id="add-alerts-success"></div>
+        <label for="eventNameAdd">Event Name</label><span id="req">*</span><br/>
+        <input type="text" id="eventNameAdd"><br/>
+        <label for="eventDateAdd">Event Date</label><span id="req">*</span><br/>
+        <input type="date" id="eventDateAdd"><br/>
+        <label for="eventTimeAdd">Event Time</label><br/>
+        <input type="time" id="eventTimeAdd"><br/>
+        <span class="locationPrompt">Would you like to add a location?</span><br/>
+        <input type="radio" id="no" class="radio" name="locationChoice" checked/>
+        <label for="no">no</label>
+        <input type="radio" id="yes" class="radio" name="locationChoice"/>
+        <label for="yes">yes</label><br/>
+        <div id="eventLocationAdd">
+            <label for="eventStreetAdd">Street Address</label><span> (recommended)</span><br/>
+            <input type="text" id="eventStreetAdd"><br/>
+            <label for="eventCityAdd">City</label><span id="req">*</span><br/>
+            <input type="text" id="eventCityAdd"><br/>
+            <label for="eventStateAdd">State/Province</label><span> (recommended)</span><br/>
+            <input type="text" id="eventStateAdd"><br/>
+            <label for="eventPostAdd">Postcode</label><br/>
+            <input type="text" id="eventPostAdd"><br/>
+            <label for="eventCountryAdd">Country</label><span id="req">*</span><br/>
+            <input type="text" id="eventCountryAdd"><br/>
+            <span class="notes"><em>(If the GPS lookup cannot find your location, try removing the house number from you street address)</em></span><br/>
+        </div>
+        <label for="eventNotesAdd">Notes</label><br/>
+        <textarea id="eventNotesAdd" cols="30" rows="10"></textarea><br/>
+        <div class="alignBtn"><button id="btnAdd">Add Event</button></div>
+    </div>
+    <div id="deletePanel">
+        <h2>Remove An Event</h2>
+        <h4>* Required Fields</h4>
+        <div id="delete-alerts-error"></div><div id="delete-alerts-success"></div>
+        <label for="eventNameDelete">Event Name</label><span id="req">*</span><br/>
+        <span class="notes"><em>(If not unique please enter a date/time as well)</em></span><br/>
+        <input type="text" id="eventNameDelete"><br/>
+        <label for="eventDateDelete">Event Date</label><br/>
+        <input type="date" id="eventDateDelete"><br/>
+        <label for="eventTimeDelete">Event Time</label><br/>
+        <input type="time" id="eventTimeDelete"><br/>
+        <div class="alignBtn"><button id="btnDelete">Delete Event</button></div>
+    </div>
+    </div>
+    <div id="editPanel">
+        <h2>Edit An Existing Event</h2>
+        <h4>* Required Fields</h4>
+        <div id="edit-alerts-error"></div><div id="edit-alerts-success"></div>
+        <h3>Current Details:</h3>
+        <label for="eventNameEdit">Event Name</label><span id="req">*</span><br/>
+        <span class="notes"><em>(If not unique please enter a date/time as well)</em></span><br/>
+        <input type="text" id="eventNameEdit"><br/>
+        <label for="eventDateEdit">Event Date</label><br/>
+        <input type="date" id="eventDateEdit"><br/>
+        <label for="eventTimeEdit">Event Time</label><br/>
+        <input type="time" id="eventTimeEdit"><br/>
+        <h3>New Details:</h3>
+        <label for="eventNameNew">Event Name</label><br/>
+        <input type="text" id="eventNameNew"><br/>
+        <label for="eventDateNew">Event Date</label><br/>
+        <input type="date" id="eventDateNew"><br/>
+        <label for="eventTimeNew">Event Time</label><br/>
+        <input type="time" id="eventTimeNew"><br/>
+        <span class="locationPrompt">Would you like to edit the event location?</span><br/>
+        <input type="radio" id="no2" class="radio" name="locationChoice2" checked/>
+        <label for="no2">no</label>
+        <input type="radio" id="yes2" class="radio" name="locationChoice2"/>
+        <label for="yes2">yes</label><br/>
+        <div id="eventLocationNew">
+            <span class="notes"><em>(If you wish to <u>clear</u> any of the location information, please enter "clear current" in the corresponding input field)</em></span><br/>
+            <label for="eventStreetNew">Street Address</label><br/>
+            <input type="text" id="eventStreetNew"><br/>
+            <label for="eventCityNew">City</label><br/>
+            <input type="text" id="eventCityNew"><br/>
+            <label for="eventStateNew">State/Province</label><br/>
+            <input type="text" id="eventStateNew"><br/>
+            <label for="eventPostNew">Postcode</label><br/>
+            <input type="text" id="eventPostNew"><br/>
+            <label for="eventCountryNew">Country</label><br/>
+            <input type="text" id="eventCountryNew"><br/>
+            <span class="notes"><em>(If the GPS lookup cannot find your location, try removing the house number from you street address)</em></span><br/>
+        </div>
+        <label for="eventNotesNew">Notes</label><br/>
+        <textarea id="eventNotesNew" cols="30" rows="10"></textarea><br/>
+        <div class="alignBtn"><button id="btnEdit">Edit Event</button></div>
+    </div>
+    </div>
+    <div id="clearPanel">
+        <h2>Clear Entire Planner</h2>
+        <div id="clear-alerts-error"></div><div id="clear-alerts-success"></div>
+        <span class="notes warning">(Note: Be careful when clearing, once done the list cannot be recovered)</span><br/>
+        <button id="btnClear">Clear List</button>
+    </div>
+
+    <script src="jsfinalproject.js"></script>
+</body>
+</html>

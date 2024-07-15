@@ -1,0 +1,395 @@
+body {
+    background-color: #707D83;
+    color: #171717;
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); /*Black w/ opacity*/
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /*15% from top and centered*/
+    padding: 10px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-body {
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+table {
+    margin: auto;
+}
+
+td {
+    padding: 10px 2px;
+}
+
+#close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close:hover, #close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#shareOptions {
+    display: none;
+}
+
+#useCustom, #useCustomText {
+    display: none;
+}
+
+#addPanel, #deletePanel, #editPanel {
+    width: 100%;
+    border: 1px solid black;
+    border-top: 0px;
+    border-bottom: 0px;
+    padding: 10px;
+    background-color: #FAFBFB;
+    margin-bottom: 10px;
+    height: fit-content;
+}
+
+#deletePanel {
+    border-top: 1px solid black;
+    background-color: #FAFBFB;
+    margin-bottom: 10px;
+}
+
+#clearPanel, #searchPanel, #eventList, #header {
+    border: 1px solid black;
+    border-top: 0px;
+    padding: 10px;
+    background-color: #FAFBFB;
+    margin-bottom: 10px;
+}
+
+#clearPanel {
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+#editPanel, #addDelete, #viewEventDetails, #viewEventNotes {
+    width: 48%;
+}
+
+#addDelete {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#addDeleteEdit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#eventViewer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid black;
+    background-color: #FAFBFB;
+    margin-bottom: 10px;
+}
+
+#eventList {
+    display: none;
+}
+
+#noEvent {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#selectedEvent {
+    padding: 10px;
+    width: 48%;
+    position: relative;
+    border-right: 1px solid black;
+}
+
+#selectedEventInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+#SEName, #notesHeading {
+    margin-top: 0px;
+}
+
+#viewEventNotes {
+    display:none;
+}
+
+#SEName {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#mapFrame {
+    width: 48%;
+}
+
+#map {
+    height: 300px;
+    margin: 20px;
+    border: 1px solid black;
+}
+
+#popup {
+    font-weight: bold;
+    text-align: center;
+}
+
+h4 {
+    font-size: 1.0125em;
+    margin: 5px 5px;
+}
+
+h3 {
+    margin: 10px 0px;
+    margin-top: 15px;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1.35em;
+}
+
+h1, h2 {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 0px;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 98%;
+    background-color: #E75750;
+    color: #FAFBFB;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 0px;
+}
+
+ul {
+    padding-inline-start: 25px;
+}
+
+li {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.25em;
+}
+
+label {
+    font-size: 1.25em;
+    margin: 10px 0px;
+}
+
+#searchInput {
+    width: 50%;
+}
+
+#showFull {
+    margin: 10px 0px;
+}
+
+.locationPrompt {
+    font-size: 1.25em;
+    margin: 10px 0px;
+}
+
+.clickPrompt {
+    font-size: 1.25em;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.notes {
+    margin: 10px 0px;
+}
+
+.warning {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+input {
+    font-size: 1.25em;
+    margin: 10px 0px;
+    width: 98%;
+    background-color: whitesmoke;
+}
+
+.radio {
+    width: 20px;
+}
+
+textarea {
+    font-size: 1.25em;
+    width: 98%;
+    margin: 10px 0px;
+    background-color: whitesmoke;
+}
+
+.alignBtn, #shareOptions {
+    text-align: center;
+}
+
+.alignBtn1 {
+    width: 51%;
+    text-align: center;
+}
+
+button {
+    width: 66%;
+    font-size: 1.125em;
+    padding: 6px 0px;
+    border-radius: 8px;
+    margin-top: 5px;
+    border: 2px solid #585858;
+    background-color: #CCCCCC;
+    color: #171717;
+}
+
+#btnSearch, #btnShowFull {
+    width: 98%;
+}
+
+#btnShowFull, #btnClear {
+    margin-top: 15px;
+}
+
+#btnSearch {
+    margin-bottom: 20px;
+}
+
+.btnCopy {
+    width: 40px;
+    height: 40px;
+    border-radius: 0px;
+}
+
+.btnSocials {
+    width: 35%;
+    border-radius: 0px;
+}
+
+#clipboard {
+    background-image: url(clipboard.jpeg);
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+#email {
+    background-image: url(mailshare.jpeg);
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+#x {
+    background-image: url(xshare.png);
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 35px;
+}
+#fb {
+    background-image: url(fbshare.png);
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 35px;
+}
+
+#req {
+    font-weight: bold;
+}
+
+#eventLocationAdd, #eventLocationNew {
+    display: none;
+}
+
+.grn {
+    color: #006400;
+}
+
+#list-alerts-general {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+}
+
+#share-alerts-error, #view-alerts-error, #search-alerts-error, #list-alerts-error, #add-alerts-error, #edit-alerts-error, #delete-alerts-error, #clear-alerts-error {
+    font-size: 1.25em;
+    color: red;
+    margin-bottom: 10px;
+    display: none;
+}
+
+#share-alerts-success, #view-alerts-success, #search-alerts-success, #list-alerts-success, #add-alerts-success, #edit-alerts-success, #delete-alerts-success, #clear-alerts-success {
+    font-size: 1.25em;
+    color: #006400;
+    margin-bottom: 10px;
+    display: none;
+}
+
+@media only screen and (max-width: 650px){
+    #selectedEvent, #mapFrame, #editPanel, #addDelete, #eventSearchAndList {
+        width: 100%;
+    }
+
+    #selectedEvent {
+        border-right: 0px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    #searchInput {
+        width: 100%;
+    }
+    
+    #btnSearch, #btnShowFull {
+        width: 66%;
+    }
+    
+    .alignBtn1 {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 390px){
+    #fb, #x {
+        width: 40%;
+        height: 30px;
+    }
+}
