@@ -1,0 +1,1 @@
+Small project to practice using Bulma css framework
