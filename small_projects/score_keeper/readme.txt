@@ -1,1 +1,1 @@
-Small project to practice using Bulma css framework
+Basic JS project to practice using Bulma CSS framework
