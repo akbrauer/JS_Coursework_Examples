@@ -1,0 +1,32 @@
+.day {
+    width: 14.285%;
+    background-color: red;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 120px;
+}
+
+.colHead {
+    width: 14.285%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.week {
+    display: flex;
+}
+
+.testing {
+    display: flex;
+}
+
+.snd {
+    margin-left: 30px;
+}
+
+.date {
+    width: 20%;
+    text-align: center;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}

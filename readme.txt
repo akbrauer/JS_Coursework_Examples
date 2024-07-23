@@ -1,0 +1,1 @@
+Small project for JS Foundations course practicing using OpenMovies api
