@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Builder</title>
+    <link rel="stylesheet" href="Exercise23.2.css" type="text/css">
+</head>
+<body>
+    <header><h1>Welcome To To-Do List Builder</h1></header>
+    <h2 class="heading">Add, Remove & Edit Items On Your To-Do List</h2> 
+    <div id="alerts-error"></div><div id="alerts-success"></div>   
+    <div id="editListFunctions">
+    <div id="addAndRemove">
+        <div id="addItem">
+            <h2>Add An Item</h2>
+            <label for="itemName">Item Name:</label><br/>
+            <input type="text" id="itemName"><br/>
+            <label for="itemDetails">Item Details:</label><br/>
+            <textarea id="itemDetails" rows="6"></textarea><br/>
+            <div id="alignBtn"><button id="btnAddItem">Add Item</button></div>
+        </div>
+        <div id="removeItem">
+            <h2>Remove An Item</h2>
+            <label for="removeItemName">Item Name:</label><br/>
+            <span class="note"><em>(Be sure to enter the exact name of the list item, otherwise it may not be found correctly)</em></span>
+            <input type="text" id="removeItemName"><br/>
+            <div id="alignBtn"><button id="btnRemoveItem">Remove Item</button></div>
+        </div>
+    </div>
+    <div id="editAndClear">
+        <div id="editItem">
+            <h2>Edit An Existing Item</h2>
+            <label for="editItemName">Current Item Name:</label><br/>
+            <span class="note"><em>(Be sure to enter the exact name of the list item, otherwise it may not be found correctly)</em></span>
+            <input type="text" id="editItemName"><br/>
+            <label for="editItemNewName">New Name (Optional):</label><br/>
+            <input type="text" id="editItemNewName"><br/>
+            <label for="editItemNewDetails">New Details (Optional):</label><br/>
+            <textarea id="editItemNewDetails" rows="6"></textarea><br/>
+            <div id="alignBtn"><button id="btnEditItem">Edit Item</button></div>
+        </div>
+        <div id="clearList">
+            <h2>Clear Entire List</h2>
+            <span class="note"><b>(Note: Be careful when clearing, once done the list cannot be recovered)</b></span>
+            <div id="alignBtn"><button id="btnClearList">Clear</button></div>
+        </div>
+    </div>
+    </div>
+    <h2 class="heading">Your To-Do List</h2>
+    <div id="yourList">
+        <div id="listAlert"></div>
+        <div id="displayOptions">
+            <h3>Display Options:</h3>
+            <table>
+                <tr>
+                    <td><label for="btnShowList">Show Full List (Completed & Incomplete)</label></td>
+                    <td><button id="btnShowList">Show <div id="extraBr"></div>Full</button></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="btnShowIncomplete">Show Active (Incomplete) Items Only</label></td>
+                    <td><button id="btnShowIncomplete">Show Incomplete</button></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="btnShowCompleted">Show Completed Items Only</label></td>
+                    <td><button id="btnShowCompleted">Show <div id="extraBr"></div>Completed</button></td>
+                </tr>
+            </table>
+        </div>
+        <div id="listViewer">
+            <div id="list"><ul id="listOutput"></ul></div>
+            <div class="markCompleted">
+                <h2>Mark An Item Completed</h2>
+                <label for="markCompletedName">Item Name:</label>
+                <input type="text" id="markCompletedName">
+                <button id="btnMarkCompleted">Mark Completed</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Exercise23.2.js"></script>
+</body>
+</html>

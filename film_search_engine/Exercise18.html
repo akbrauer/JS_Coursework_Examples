@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie database Search</title>
+    <style>
+        header {
+            color: white;
+            text-align: center;
+            font-size: 1.75em;
+        }
+
+        body {
+            background-color: black;
+            font-family: Helvetica, sans-serif;
+        }
+
+        h2 {
+            font-size: 1.75em;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h3, h4 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        #searchBar {
+            background-color: rgb(242, 185, 78);
+            border: 1px solid white;
+            padding: 5px;
+            padding-top: 10px;
+        }
+
+        label {
+            font-size: 1.5em;}
+
+        input {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            width: 99%;}
+
+        #yes, #no {
+            width: 20px;
+            margin-left: 0px;
+    }
+
+        button {
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            font-size: 2em;
+            width: 100%;
+        }
+
+        #output {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+
+        #movie {
+            background-color: rgb(242, 185, 78);
+            color: black;
+            border: 2px solid white;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 48%;
+        }
+
+        img {
+            width: 300px;
+            height: 457px;
+        }
+
+        @media only screen and (max-width: 740px) {
+            #movie {width: 98%;}
+        }
+
+        @media only screen and (min-width: 1450px) {
+            #movie {
+                width: 49%;
+            }
+            input {width: 99.5%;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome To The Film Directory Search Engine</h1>
+    </header>
+    <div id="searchBar">
+        <label for="userInput">Title of Film:</label><br/>
+        <input type="text" id="userInput"/><br/>
+        <label for="yearInput">Year of Release (optional):</label><br/>
+        <input type="text" id="yearInput"/><br/>
+        <label for="yes">Is this the exact title of the film?</label><br/>
+        <label for="yes">yes</label>
+        <input type="radio" id="yes" name="exactName" value="yes">
+        <label for="no">no</label>
+        <input type="radio" id="no" name="exactName" value="no">
+        <button id="btnSearch">Search</button>
+    </div>
+    <div id="output"></div>
+    <script>
+        let output = document.getElementById('output');
+        let button = document.getElementById('btnSearch');
+        let key = "278adced";
+        let yes = document.getElementById('yes');
+        let no = document.getElementById('no');
+        let exactValue = "";
+        
+        button.addEventListener('click', () => {
+            output.innerHTML = "<h2>Loading...</h2>";
+            getResponse()});
+
+        userInput.addEventListener('keydown', (e) => {
+            if (e.key == "Enter"){
+                output.innerHTML = "<h2>Loading...</h2>";
+                getResponse();
+            };
+            });
+
+        yearInput.addEventListener('keydown', (e) => {
+        if (e.key == "Enter"){
+            output.innerHTML = "<h2>Loading...</h2>";
+            getResponse();
+        };
+        });
+
+        yes.addEventListener('click', () =>{
+            exactValue = "1";
+        });
+
+
+        no.addEventListener('click', () => {
+            exactValue = "0";
+        });
+
+        yes.addEventListener('keydown', (e) => {
+        if (e.key == "Enter"){
+            output.innerHTML = "<h2>Loading...</h2>";
+            getResponse();
+        };
+        });
+
+        no.addEventListener('keydown', (e) => {
+        if (e.key == "Enter"){
+            output.innerHTML = "<h2>Loading...</h2>";
+            getResponse();
+        };
+        });
+        
+
+        async function getResponse() {
+            try{
+            console.log(exactValue);
+            userSearch = document.getElementById('userInput').value;
+            if(exactValue == 1){
+                const response = await fetch("http://www.omdbapi.com/" + "?apikey=" + key + "&t=" + userSearch.replaceAll(" ", "+") + "&y=" + yearInput.value);
+                const data = await response.json();
+                console.log(data);
+                displaySingleResult(data);
+                if(data.Error == "Invalid API key!"){
+                    output.innerHTML = "<h1>API KEY OUT OF DATE, PLEASE CONTACT DEVELOPER</h1>";
+                }
+                if(data.Error == "Movie not found!"){
+                    output.innerHTML = "<h1>MOVIE NOT FOUND</h1>";
+                }
+            }else{
+                const response = await fetch("http://www.omdbapi.com/" + "?apikey=" + key + "&s=" + userSearch.replaceAll(" ", "+") + "&y=" + yearInput.value);
+                const data = await response.json();
+                console.log(data);
+
+                displayResult(data);
+                if(data.Error == "Invalid API key!"){
+                    output.innerHTML = "<h1>API KEY OUT OF DATE, PLEASE CONTACT DEVELOPER</h1>";
+                }
+                if(data.Error == "Movie not found!"){
+                    output.innerHTML = "<h1>MOVIE NOT FOUND</h1>";
+                }
+                
+            }
+        }catch(error) {
+            console.error("error");
+        }
+    }
+       
+        async function displayResult(data) {
+        try {    
+            output.innerHTML = "";
+            for(x = 0; x < data.Search.length; x++){
+                let movieTitle = data.Search[x].Title;
+                console.log(movieTitle);
+                const multiResponse = await fetch("http://www.omdbapi.com/" + "?apikey=" + key + "&t=" + movieTitle.replaceAll(" ", "+"));
+                const multiData = await multiResponse.json();
+                pullRating = multiData.imdbRating;
+                pullDirector = multiData.Director;
+                pullGenre = multiData.Genre;
+                pullPlot = multiData.Plot;
+                
+                let movie = document.createElement('div')
+                movie.setAttribute("id", "movie")
+                movie.style.width = "";
+                output.appendChild(movie);
+                let titleandyearDiv = document.createElement('div');
+                titleandyearDiv.setAttribute("class", "titleandyear");
+                movie.appendChild(titleandyearDiv);
+                let posterDiv = document.createElement('div');
+                posterDiv.setAttribute("class", "poster");
+                movie.appendChild(posterDiv);
+                let ratingDiv = document.createElement('div');
+                ratingDiv.setAttribute("class", "rating");
+                movie.appendChild(ratingDiv);
+                let directorDiv = document.createElement('div');
+                directorDiv.setAttribute("class", "director");
+                movie.appendChild(directorDiv);
+                let genreDiv = document.createElement('div');
+                genreDiv.setAttribute("class", "genre");
+                movie.appendChild(genreDiv);
+                let plotDiv = document.createElement('div');
+                plotDiv.setAttribute("class", "plot");
+                movie.appendChild(plotDiv);
+
+                let title = document.createElement('h2');
+                let year = document.createElement('em');
+                let titleText = document.createTextNode(data.Search[x].Title);
+                let yearText = document.createTextNode(" (" + data.Search[x].Year + ")");
+                year.appendChild(yearText)
+                title.appendChild(titleText);
+                title.appendChild(year);
+                let poster = document.createElement('img');
+                await poster.setAttribute("src", data.Search[x].Poster);
+                poster.setAttribute("id", data.Search[x].Title)
+                await checkImage(poster);
+                let rating = document.createElement('h3');
+                let ratingText = document.createTextNode("IMDB Rating: " + pullRating)
+                rating.appendChild(ratingText);
+                let director = document.createElement('h4');
+                let directorText = document.createTextNode("Directed By: " + pullDirector);
+                director.appendChild(directorText);
+                let genre = document.createElement('h4');
+                let genreText = document.createTextNode("Genre: " + pullGenre);
+                genre.appendChild(genreText);
+                let plot = document.createElement('p');
+                let plotText = document.createTextNode("Plot Summary: " + pullPlot)
+                plot.appendChild(plotText);
+
+                titleandyearDiv.appendChild(title);
+                posterDiv.appendChild(poster);
+                ratingDiv.appendChild(rating);
+                genreDiv.appendChild(genre);
+                directorDiv.appendChild(director);
+                plotDiv.appendChild(plot);
+
+                console.log(output);
+            }
+    }catch(error) {
+            console.error("error");
+        }
+    }
+
+        async function displaySingleResult(data) {
+            try{    
+                output.innerHTML = "";
+                let movie = document.createElement('div')
+                movie.setAttribute("id", "movie")
+                movie.style.width = "100%";
+                output.appendChild(movie);
+                
+                let titleandyearDiv = document.createElement('div');
+                titleandyearDiv.setAttribute("id", "titleandyear");
+                movie.appendChild(titleandyearDiv);
+                let posterDiv = document.createElement('div');
+                posterDiv.setAttribute("id", "poster");
+                movie.appendChild(posterDiv);
+                let ratingDiv = document.createElement('div');
+                ratingDiv.setAttribute("id", "rating");
+                movie.appendChild(ratingDiv);
+                let directorDiv = document.createElement('div');
+                directorDiv.setAttribute("id", "director");
+                movie.appendChild(directorDiv);
+                let genreDiv = document.createElement('div');
+                genreDiv.setAttribute("id", "genre");
+                movie.appendChild(genreDiv);
+                let plotDiv = document.createElement('div');
+                plotDiv.setAttribute("id", "plot");
+                movie.appendChild(plotDiv);
+
+                let title = document.createElement('h2');
+                let year = document.createElement('em');
+                let titleText = document.createTextNode(data.Title);
+                let yearText = document.createTextNode(" (" + data.Year + ")");
+                year.appendChild(yearText)
+                title.appendChild(titleText);
+                title.appendChild(year)
+                let poster = document.createElement('img');
+                poster.setAttribute("src", data.Poster)
+                poster.setAttribute("id", data.Title)
+                await checkImage(poster);
+                let rating = document.createElement('h3');
+                let ratingText = document.createTextNode("IMDB Rating: " + data.imdbRating)
+                rating.appendChild(ratingText);
+                let director = document.createElement('h3');
+                let directorText = document.createTextNode("Directed By: " + data.Director)
+                director.appendChild(directorText);
+                let genre = document.createElement('h3');
+                let genreText = document.createTextNode("Genre: " + data.Genre)
+                genre.appendChild(genreText);
+                let plot = document.createElement('p');
+                let plotText = document.createTextNode("Plot Summary: " + data.Plot);
+                plot.appendChild(plotText);
+
+                titleandyearDiv.appendChild(title);
+                posterDiv.appendChild(poster);
+                ratingDiv.appendChild(rating);
+                directorDiv.appendChild(director);
+                genreDiv.appendChild(genre);
+                plotDiv.appendChild(plot);
+
+                console.log(output);
+            }catch(error) {
+                console.error("error");
+            }
+        }
+
+        async function checkImage(poster){
+            try {    
+                if (poster.src.includes("N/A")){
+                    poster.setAttribute("src", "noimage.jpeg");
+                    poster.setAttribute("id", "noimage");
+                    console.error("missing image replaced");
+                }
+            }catch(error) {
+                console.error("error");
+            }
+        }
+    </script>
+</body>
+</html>

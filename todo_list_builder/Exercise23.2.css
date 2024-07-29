@@ -1,0 +1,235 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #17252A;
+    
+}
+
+h1 {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    margin: 10px 0px;
+    background-color: #2B7A78;
+}
+
+header {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #3AAFA9;
+}
+
+.heading {
+    text-decoration: underline;
+    border: none;
+    margin-bottom: 5px;
+    background-color: #17252A;
+    color: #3AAFA9;
+}
+
+#listAlert {
+    margin-bottom: 10px;
+    color: #2B7A78;
+}
+
+h2 {
+   border: 1px solid black;
+   border-radius: 10px;
+   padding: 5px 0px;
+   margin: 0px 0px;
+   margin-bottom: 10px;
+   text-align: center;
+   width: 100%;
+   background-color: #2B7A78;
+}
+
+#editListFunctions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#addItem, #removeItem, #editItem, #clearList {
+    border: 1px solid black;
+    padding: 10px;
+    width: 94%;
+    margin-bottom: 15px;
+    background-color: #3AAFA9;
+}
+
+label {
+    font-size: 1.25em;
+    margin: 10px 0px;
+}
+
+input {
+    font-size: 1.25em;
+    margin: 10px 0px;
+    width: 98%;
+    background-color: #DEF2F1;
+}
+
+textarea {
+    font-size: 1.25em;
+    width: 98%;
+    margin: 10px 0px;
+    background-color: #DEF2F1;
+}
+
+#alignBtn {
+    text-align: center;
+}
+
+button {
+    font-size: 1.25em;
+    width: 98%;
+    background-color: silver;
+    border: 1px solid black;
+}
+
+#btnClearList, #btnMarkCompleted {
+    margin-top: 10px;
+}
+
+#yourList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#displayOptions {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+    background-color: #3AAFA9;
+}
+
+#btnShowFull, #btnShowIncomplete, #btnShowCompleted {
+    width: 98%;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+td {width: 50%;}
+
+#listViewer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.markCompleted {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    padding-bottom: 20px;
+    margin-top: 15px;
+    height: 128px;
+    background-color: #3AAFA9;
+}
+
+#markCompletedHalved {
+    width: 100%;
+}
+
+h3 {
+    font-size: 1.35em;
+    margin: 5px 0px;
+    text-align: left;
+}
+
+#markCompletedName {
+    width: 50%;
+}
+
+#list {
+    border: 1px solid black;
+    display: none;
+    padding-right: 10px;
+    width: 98%;
+    margin-top: 15px;
+    background-color: #3AAFA9;
+}
+
+li {margin: 15px 0px;}
+
+#alerts-error {
+    color: red;
+    margin-bottom: 10px;
+    display: none;
+}
+
+#alerts-success {
+    color: darkgreen;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.incomplete {color: red;}
+
+.completed {color: darkgreen;}
+
+@media only screen and (min-width: 409px){
+    #extraBr {
+    display: none;
+    }
+}
+
+@media only screen and (min-width: 450px){
+    #addItem, #removeItem, #editItem, #clearList {
+        width: 96%;
+    }
+
+    #listViewer, #displayOptions, .markCompleted {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 740px){
+    #addItem, #removeItem, #editItem, #clearList {
+        width: 94%;
+    }
+
+    #addAndRemove, #editAndClear {
+        width: 48%;
+    }
+    
+    #btnAddItem, #btnRemoveItem {
+        margin: 10px 0px;
+    }
+
+    #addItem {
+        margin-bottom: 21px;
+    }
+
+    #markCompletedHalved, #list {
+        width: 48%;
+    }
+}
+
+@media only screen and (min-width: 900px){
+    #addItem, #removeItem, #editItem, #clearList {
+        width: 96%;
+    }
+}
+
+@media only screen and (min-width: 1090px){
+    #btnAddItem, #btnRemoveItem {
+        margin: 7px 0px;
+    }
+    #addItem {
+        margin-bottom: 15px;
+    }
+    #yourList {width: 100%;}
+}
+
+@media only screen and (min-width: 1550px){
+    #yourList {width: 99%;}
+}

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadLibs: A Day In The Life</title>
+    <style>
+        article {
+            max-width: 1000px;
+        }
+        
+        h1 {
+            font-size: 2.3em;
+            margin: 5px;
+            margin-bottom: 15px;
+        }
+
+        h2, h4 {
+            margin: 5px 0px;
+        }
+
+        #saveInfo{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        td {text-align: right;
+        padding: 5px;
+        padding-left: 0px;
+        }
+
+        label {
+            font-size: 1.25em;
+        }
+
+        input {
+            border: 1px solid grey;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 1.25em;
+        }
+
+        button {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            width: 85%;
+            height: 40px;
+            font-size: 1.5em;
+        }
+
+        #saveButtons {
+            display: flex;
+            justify-content: left;
+            flex-wrap: wrap;
+        }
+
+        #btnSave {
+            margin-top: 5px;
+        }
+
+        #btnSave1, #btnSave2, #btnSave3, #btnSave4 {
+            margin-top: 5px;
+            margin-left: 15px;
+            display: none;
+            width: 43%;
+            height: 32px;
+        }
+
+        #go {text-align: center;}
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: black;
+            background-color: rgba(0,0,0,0.4);
+            border: 1px solid black;
+        }
+
+        .modalHeader {
+            padding: 2px 16px;
+            color: black;
+        }
+
+        .modalFooter {text-align: center;}
+
+        #saveOption {display: block;}
+
+        .modalContent {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0px;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        #output {
+            font-size: 1.125em;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-left: 15px;
+            margin-right: 15px;
+            padding: 7px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #errorMessage {color: red;}
+    </style>
+</head>
+<body>
+<article>
+    <h1>A Day In The Life...</h1>
+    <div id="saveButtons">
+        <button id="btnSave1">Save 1</button>
+        <button id="btnSave2">Save 2</button>
+        <button id="btnSave3">Save 3</button>
+        <button id="btnSave4">Save 4</button>
+    </div>
+    <h4>Fill in each blank with an appropriate noun, verb or adjective. When you're finished, press the <em>Go</em> button. Be creative and have fun!<div id="errorMessage"></div></h4>
+    <table>
+        <tr>
+            <td><label for="noun1">Noun 1 (not a<br/> person or a place)</label></td>
+            <td><input type="text" id="noun1"/></td>
+        </tr>
+        <tr>
+            <td><label for="noun2">Noun 2 (a person)</label></td>
+            <td><input type="text" id="noun2"/></td>
+        </tr>
+        <tr>
+            <td><label for="noun3">Noun 3 (not a place)</label></td>
+            <td><input type="text" id="noun3"/></td>
+        </tr>
+        <tr>
+            <td><label for="noun4">Noun 4 (a place)</label></td>
+            <td><input type="text" id="noun4"/></td>
+        </tr>
+        <tr>
+            <td><label for="noun5">Noun 5 (a place)</label></td>
+            <td><input type="text" id="noun5"/></td>
+        </tr>
+        <tr>
+            <td><label for="noun6">Noun 6</label></td>
+            <td><input type="text" id="noun6"/></td>
+        </tr>
+        <tr>
+            <td><label for="verb1">Verb 1</label></td>
+            <td><input type="text" id="verb1"/></td>
+        </tr>
+        <tr>
+            <td><label for="verb2">Verb 2</label></td>
+            <td><input type="text" id="verb2"/></td>
+        </tr>
+        <tr>
+            <td><label for="verb3">Verb 3 (past tense)</label></td>
+            <td><input type="text" id="verb3"/></td>
+        </tr>
+        <tr>
+            <td><label for="verb4">Verb 4 (___ing)</label></td>
+            <td><input type="text" id="verb4"/></td>
+        </tr>
+        <tr>
+            <td><label for="adj1">Adjective 1</label></td>
+            <td><input type="text" id="adj1"/></td>
+        </tr>
+        <tr>
+            <td><label for="adj2">Adjective 2</label></td>
+            <td><input type="text" id="adj2"/></td>
+        </tr>
+        <tr>
+            <td><label for="adj3">Adjective 3</label></td>
+            <td><input type="text" id="adj3"/></td>
+        </tr>
+        <tr>
+            <td><label for="adj4">Adjective 4</label></td>
+            <td><input type="text" id="adj4"/></td>
+        </tr>
+        <tr>
+            <td><label for="adj5">Adjective 5<br/>(a feeling)</label></td>
+            <td><input type="text" id="adj5"/></td>
+        </tr>
+        <tr>
+            <td><label for="adj6">Adjective 6</label></td>
+            <td><input type="text" id="adj6"/></td>
+        </tr>
+    </table>
+    <div id="go"><button id="btnGo">Go</button></div>
+    <div id="popup" class="modal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <span class="close">&times;</span>
+                <h2 id="header"></h2>
+            </div>
+            <div id="output"></div>
+            <div class="modalFooter">
+                <h4 id="saveInfo"></h4>
+                <div id="saveOption"><button id="btnSave">Save</button></div>
+            </div>
+        </div>
+    </div>
+</article>
+    <script>
+        let storySave1 = "";
+        let storyTitle1 = "";
+        let storySave2 = "";
+        let storyTitle2 = "";
+        let storySave3 = "";
+        let storyTitle3 = "";
+        let storySave4 = "";
+        let storyTitle4 = "";
+        let clickAdded = "no";
+        let modal = document.getElementById('popup');
+        let span = document.getElementsByClassName('close')[0];
+        span.onclick = function(){
+            modal.style.display = "none";
+        };
+        window.onclick = function(event){
+            if(event.target == modal){
+                modal.style.display = "none";
+            };
+        };
+        
+        document.getElementById('btnGo').addEventListener('click', () =>{
+            let nouns = [];
+            for (x = 1; x < 7; x++){
+                nouns.push(document.getElementById(`noun${x}`).value);
+            };
+            console.log(nouns);
+            let verbs = [];
+            for (x = 1; x < 5; x++){
+                verbs.push(document.getElementById(`verb${x}`).value);
+            };
+            console.log(verbs);
+            let adjs = [];
+            for (x = 1; x < 7; x++){
+                adjs.push(document.getElementById(`adj${x}`).value);
+            };
+            console.log(adjs);
+
+            if("yes" == valueCheck(nouns, verbs, adjs)){
+                document.getElementById('output').innerHTML = "";
+                document.getElementById('output').innerHTML += `There once was a ${nouns[0]} named ${nouns[1]}. S/he was a very ${adjs[0]} ${nouns[0]}. S/he had a ${nouns[2]} which s/he loved very much. Every day s/he would ${verbs[0]} (with) this ${nouns[2]}. They would ${verbs[0]} at/in a ${adjs[1]} ${nouns[3]}. Then they would go to ${verbs[1]} at a ${adjs[2]} ${nouns[4]}. They were the best of friends. One day ${nouns[1]}'s ${nouns[0]} ${verbs[2]}. It was quite ${adjs[3]}. This became a story they would tell to their ${nouns[5]} while they were out ${verbs[3]}. This made them feel ${adjs[4]}. It was a/an ${adjs[5]} story.`;
+                document.getElementById("header").innerHTML = `A Day In The Life Of ${nouns[1]}`;
+                
+                modal.style.display = "block";
+                document.getElementById('saveOption').style.display = "block";
+                document.getElementById('saveInfo').innerHTML = "If you liked your story, you can save it to read again later. Then just press the button at the top of the page to see it.";
+                
+                if(clickAdded == "no"){
+                    document.getElementById('btnSave').addEventListener('click', () =>{
+                        if(storySave1 == ""){
+                            storySave1 = document.getElementById('output').innerHTML;
+                            storyTitle1 = nouns[1];
+                            document.getElementById('saveInfo').innerHTML = "Story saved to slot 1";
+                            document.getElementById('btnSave1').style.display = "block";
+                            console.log("1:" + storySave1);
+                        } else if(storySave1 !== ""){
+                            if (storySave2 == ""){
+                                storySave2 = document.getElementById('output').innerHTML;
+                                storyTitle2 = nouns[1];
+                                document.getElementById('saveInfo').innerHTML = "Story saved to slot 2";
+                                document.getElementById('btnSave2').style.display = "block";
+                                console.log("2:" + storySave2);
+                            } else if(storySave2 !== ""){
+                                if(storySave3 == ""){
+                                    storySave3 = document.getElementById('output').innerHTML;
+                                    storyTitle3 = nouns[1];
+                                    document.getElementById('saveInfo').innerHTML = "Story saved to slot 3";
+                                    document.getElementById('btnSave3').style.display = "block";
+                                    console.log("3:" + storySave3);
+                                } else if(storySave3 !== ""){
+                                    if(storySave4 == ""){
+                                        storySave4 = document.getElementById('output').innerHTML;
+                                        storyTitle4 = nouns[1];
+                                        document.getElementById('saveInfo').innerHTML = "Story saved to slot 4";
+                                        document.getElementById('btnSave4').style.display = "block";
+                                        console.log("4:" + storySave4);
+                                    } else if(storySave4 !== ""){
+                                        document.getElementById('saveInfo').innerHTML = "Sorry you already have 4 stories saved."
+                                    };
+                                };
+                            };
+                        };
+                        
+                    });
+                    clickAdded = "yes";
+                    console.log("Click added?: " + clickAdded);
+                };
+            };
+        });
+
+        document.getElementById('btnSave1').addEventListener('click', () =>{
+            output = storySave1;
+            document.getElementById("header").innerHTML = `A Day In The Life Of ${storyTitle1}`;
+            modal.style.display = "block";
+            document.getElementById('saveOption').style.display = "none";
+            document.getElementById('saveInfo').innerHTML = "Story saved to slot 1";
+        });
+
+        document.getElementById('btnSave2').addEventListener('click', () =>{
+            output = storySave2;
+            document.getElementById("header").innerHTML = `A Day In The Life Of ${storyTitle2}`;
+            modal.style.display = "block";
+            document.getElementById('saveOption').style.display = "none";
+            document.getElementById('saveInfo').innerHTML = "Story saved to slot 2";
+        });
+
+        document.getElementById('btnSave3').addEventListener('click', () =>{
+            output = storySave3;
+            document.getElementById("header").innerHTML = `A Day In The Life Of ${storyTitle3}`;
+            modal.style.display = "block";
+            document.getElementById('saveOption').style.display = "none";
+            document.getElementById('saveInfo').innerHTML = "Story saved to slot 3";
+        });
+
+        document.getElementById('btnSave4').addEventListener('click', () =>{
+            output = storySave4;
+            document.getElementById("header").innerHTML = `A Day In The Life Of ${storyTitle4}`;
+            modal.style.display = "block";
+            document.getElementById('saveOption').style.display = "none";
+            document.getElementById('saveInfo').innerHTML = "Story saved to slot 4";
+        });
+
+        let valueCheck = (nouns, verbs, adjs) => {
+            errorMessage.innerHTML = "";
+            let nounsChecked = "yes";
+            let verbsChecked = "yes";
+            let adjsChecked = "yes";
+            for(x = 0; x < 6; x++){
+                if(nouns[x] == ""){
+                    nounsChecked = "no";
+                    document.getElementById('errorMessage').innerHTML += `<br/>please enter a value for noun ${x+1}`;
+                };
+            };
+            for(x = 0; x < 4; x++){
+                if(verbs[x] == ""){
+                    verbsChecked = "no";
+                    document.getElementById('errorMessage').innerHTML += `<br/>please enter a value for verb ${x+1}`;
+                };
+            };
+            for(x = 0; x < 6; x++){
+                if(adjs[x] == ""){
+                    adjsChecked = "no";
+                    document.getElementById('errorMessage').innerHTML += `<br/>please enter a value for adjective ${x+1}`;
+                };
+            };
+
+            if(nounsChecked == "yes" && verbsChecked == "yes" && adjsChecked == "yes"){
+                console.log("Form Error Free?: Yes")
+                return "yes";
+            } else {
+                console.log("Form Error Free: No")
+                return "no";
+            };
+        };
+    </script>
+</body>
+</html>

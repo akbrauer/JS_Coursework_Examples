@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScipt Weather Fetch</title>
+    <style>
+        body {background-color:#2E4ED1;}
+
+        #weatherdisplay {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            background-color: #cfa914;
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        #header h1 {
+            margin-bottom: 1px;
+            font-size: 2.5em;
+        }
+
+        #header h2 {
+            margin-top: 5px;
+            font-size: 2em;
+        }
+
+        #header {
+            border: 2px solid black;
+            background-color: #D1B12E;
+            border-radius: 5px;
+        }
+
+        #conditions {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 1.5em;
+            margin-top: 8px;
+        }
+
+        #current, #feel, #high, #low, #humidity, #wind {
+            width: 48%;
+            background-color: #d6b73c;
+            border: 2px solid black;
+            border-radius: 10px;
+            justify-content: center;
+            margin: 3px;
+        }
+
+        #temp {
+            font-size: 2em;
+            color: #022cd2;
+        }
+
+        #humidity, #wind {
+            font-size: 1.5em;
+        }
+
+        button {
+            font-size: 2em;
+            background-color:lightgrey;
+            border: 2px solid black;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 580px){
+            #header h1 {font-size: 2.25em;}
+
+            #header h2 {font-size: 1.75em;}
+
+            #conditions {font-size: 1.25em;}
+
+            #current, #feel, #high, #low, #humidity, #wind {width: 47%;}
+        }
+
+        @media only screen and (max-width: 490px){
+            #header h1 {font-size: 2em;}
+
+            #header h2 {font-size: 1.5em;}
+
+            #conditions {font-size: 1em;}
+
+            #current, #feel, #high, #low, #humidity, #wind {width: 46%;}
+        }
+    </style>
+</head>
+<body>
+    <div id="weatherdisplay">
+    <h1>Welcome to WeatherSearch</h1></div>
+    <button id="btn">Search</button>
+    <script src="weather.js"></script>
+</body>
+</html>
