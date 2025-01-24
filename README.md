@@ -1,2 +1,2 @@
 # JS-Portfolio
-Collection of html, css, js projects
+A collection of smaller js projects, most completed as coursework for development courses
