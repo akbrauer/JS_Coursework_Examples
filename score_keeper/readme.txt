@@ -1,1 +1,0 @@
-Basic JS project to practice using Bulma CSS framework
