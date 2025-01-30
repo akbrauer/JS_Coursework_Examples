@@ -14,11 +14,18 @@ Final projects for JS intro course. Introduction to usage of databases using Ind
 
 ## 4: Film Search Engine
 
+Intermediate API practice returning user search queries from OpenMovies database. Assignment required usage of basic error handling, async functions, and adding UI filters to search results. PDF of homework requirements included.
+
 ## 5: Weather App
+
+Introduction to API usage in intro JS course. Similar to in the final projects, the general concept of fetch was introduced in lectures, but the homework was intended to require independent research and experience reading API docs and MDN/StackOverflow to complete. PDF of homework requirements included.
 
 ## 6: Score Keeper
 
+Advanced CSS project learning Bulma as an alternative framework to Bootstrap.
+
 ## 7: Small Node Projects
+
 <ul>
     <li>Intro to node & zsh using simple api to guess command line input language.</li>
     <li>A barebones site for a farm stand to practice relational data models in MongoDB.</li>
@@ -26,6 +33,7 @@ Final projects for JS intro course. Introduction to usage of databases using Ind
 </ul>
 
 ## 8: Small React Projects
+
 <ul>
     <li>Effects Practice: Two components making api calls with useEffect</li>
     <li>MUI Todo List: Practice using Material UI by building a stateful todo list app with LocalStorage</li>
@@ -33,10 +41,12 @@ Final projects for JS intro course. Introduction to usage of databases using Ind
 </ul>
 
 ## 9: Small JS Projects
+
+Less complicated projects from early on in intro JS course
 <ul>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Bus Scheduler: JS classes & dynamic HTML homework</li>
+    <li>Madlib Generator: Event listener homework</li>
+    <li>String Processor: String methods homework</li>
 </ul>
 
 ## Styling Only Projects
@@ -44,6 +54,6 @@ Final projects for JS intro course. Introduction to usage of databases using Ind
 Leftovers of CSS course sections learning UI design
 <ul>
     <li>Comfort Eats: intro HTML final project to design food blog</li>
-    <li>Museum of Candy: Advanced CSS project to learn Bootstrap</li>
-    <li>Real Estate Listing: intro CSS final project to design real estate site</li>
+    <li>Museum of Candy: Advanced CSS project using Bootstrap to design responsive website for fictional instagram museum</li>
+    <li>Real Estate Listing: intro CSS final project using responsive design to build real estate advert</li>
 </ul>
