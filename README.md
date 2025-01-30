@@ -12,13 +12,13 @@ Final project for Node.js section of advanced course. NOTE: This was a code-alon
 
 Final projects for JS intro course. Introduction to usage of databases using IndexedDB for client-side storage. Event planner also practiced API integration and usage/storage of geocoding data. The most important aspect of these projects as the final exam of the course is that no assistance or introduction to these tools were provided in the assignment, and they had not been previously covered in the course. The project simply required integration of the leaflet API and either IndexedDB or LocalStorage. The usage and methods of database storage & retrieval were completely new concepts, and the final test was for students to research and learn their implementation on their own. PDF files for project requirements can be found in each of the project folders.
 
-## Mui
+## 4: Film Search Engine
 
-A collection of components practicing using state.
-An intro to building a stateful react app with LocalStorage, styled with material UI.
-Two components making api calls to get a Github user's profile photo and display an inspirational quote to pratice using effects.
+## 5: Weather App
 
-## Small Node Projects
+## 6: Score Keeper
+
+## 7: Small Node Projects
 
 <ul>
     <li>Intro to node & zsh using simple api to guess command line input language.</li>
@@ -26,10 +26,23 @@ Two components making api calls to get a Github user's profile photo and display
     <li>A demo using Bcrypt to hash passwords in order to understand the concepts of password hashing & salting before using passport.</li>
 </ul>
 
+## 8: Small React Projects
+<ul>
+    <li>Effects Practice: Two components making api calls with useEffect</li>
+    <li>MUI Todo List: Practice using Material UI by building a stateful todo list app with LocalStorage</li>
+    <li>State Practice: A handful of components practicing useState</li>
+</ul>
+
+## 9: Small JS Projects
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
 
 ## 10: Styling Only Projects
 
-Leftovers of CSS course sections focused on UI design
+Leftovers of CSS course sections learning UI design
 <ul>
     <li>Comfort Eats: intro HTML final project to design food blog</li>
     <li>Museum of Candy: Advanced CSS project to learn Bootstrap</li>
