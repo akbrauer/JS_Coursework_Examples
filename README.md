@@ -19,7 +19,6 @@ Final projects for JS intro course. Introduction to usage of databases using Ind
 ## 6: Score Keeper
 
 ## 7: Small Node Projects
-
 <ul>
     <li>Intro to node & zsh using simple api to guess command line input language.</li>
     <li>A barebones site for a farm stand to practice relational data models in MongoDB.</li>
@@ -40,7 +39,7 @@ Final projects for JS intro course. Introduction to usage of databases using Ind
     <li></li>
 </ul>
 
-## 10: Styling Only Projects
+## Styling Only Projects
 
 Leftovers of CSS course sections learning UI design
 <ul>
