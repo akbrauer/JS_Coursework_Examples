@@ -10,7 +10,7 @@ Final project for Node.js section of advanced course. NOTE: This was a code-alon
 
 ## 2 & 3: Event Planner & Todo List Builder
 
-Final projects for intro JS course. Introduction to usage of databases using IndexedDB for client-side storage. Event planner also practiced API integration and usage/storage of geocoding data. The most important aspect of these projects as the final exam of the course is that no assistance or introduction to these tools were provided in the assignment, and they had not been previously covered in the course. The project simply required integration of the leaflet API and either IndexedDB or LocalStorage. The usage and methods of database storage & retrieval were completely new concepts, and the final test was for students to research and learn their implementation on their own. PDF files for project requirements can be found in each of the project folders.
+Final projects for JS intro course. Introduction to usage of databases using IndexedDB for client-side storage. Event planner also practiced API integration and usage/storage of geocoding data. The most important aspect of these projects as the final exam of the course is that no assistance or introduction to these tools were provided in the assignment, and they had not been previously covered in the course. The project simply required integration of the leaflet API and either IndexedDB or LocalStorage. The usage and methods of database storage & retrieval were completely new concepts, and the final test was for students to research and learn their implementation on their own. PDF files for project requirements can be found in each of the project folders.
 
 ## Mui
 
@@ -24,4 +24,14 @@ Two components making api calls to get a Github user's profile photo and display
     <li>Intro to node & zsh using simple api to guess command line input language.</li>
     <li>A barebones site for a farm stand to practice relational data models in MongoDB.</li>
     <li>A demo using Bcrypt to hash passwords in order to understand the concepts of password hashing & salting before using passport.</li>
+</ul>
+
+
+## 10: Styling Only Projects
+
+Leftovers of CSS course sections focused on UI design
+<ul>
+    <li>Comfort Eats: intro HTML final project to design food blog</li>
+    <li>Museum of Candy: Advanced CSS project to learn Bootstrap</li>
+    <li>Real Estate Listing: intro CSS final project to design real estate site</li>
 </ul>
