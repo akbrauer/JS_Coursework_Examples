@@ -1,0 +1,12 @@
+.colorBox {
+    width: 20%;
+    height: 20%;
+}
+
+.colorGrid {
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
