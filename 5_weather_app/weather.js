@@ -1,6 +1,6 @@
 let output = document.getElementById("output");
 let button = document.getElementById("btn");
-let key = "ec5c38e49bb2d425ad666d696c8bf3fa";
+let key = "KEY REMOVED FOR GITHUB DEMO";
 
 let urlWea = "https://api.openweathermap.org/data/2.5/weather";
 //?lat={lat}&lon={lon}&appid={API key}

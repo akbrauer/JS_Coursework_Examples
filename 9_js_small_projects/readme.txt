@@ -1,1 +1,0 @@
-Collection of small projects for javascript intro course

@@ -1,1 +1,0 @@
-Final project for CSS intro course
