@@ -1,6 +1,6 @@
 # JS Coursework Examples
 
-Collection of projects completed throughout a certification based [introductory HTML, CSS & JS course](https://www.udemy.com/course/become-a-certified-web-developer/), [(certificates can be found here)](https://www.credential.net/profile/averybrauer780872/wallet) and then an [advanced full-stack JS course](https://www.udemy.com/course/the-web-developer-bootcamp/):
+Collection of projects completed throughout a certification based [HTML, CSS & JS foundations course](https://www.udemy.com/course/become-a-certified-web-developer/), [(certificates can be found here)](https://www.credential.net/profile/averybrauer780872/wallet) and then an [advanced full-stack JS course](https://www.udemy.com/course/the-web-developer-bootcamp/):
 
 Projects are numbered in order of complexity, the details of which can be found here:
 
