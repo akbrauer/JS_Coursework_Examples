@@ -44,10 +44,10 @@ Advanced CSS project learning Bulma as an alternative framework to Bootstrap.
 
 ### Standalone Small Projects
 <ul>
-    <li>Coding test question for remote job application</li>
+    <li>Message Decoer: Coding test question for remote job application</li>
 </ul>
 
-### Very simple projects from intro JS course
+### Projects from start of intro JS course
 <ul>
     <li>Bus Scheduler: JS classes & dynamic HTML homework</li>
     <li>Madlib Generator: Event listener homework</li>
